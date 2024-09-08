@@ -23,7 +23,8 @@ namespace Patterns
         private void create_Click(object sender, EventArgs e)
         {
             MainFurniturePlace<ModernFurniture> furniture = new MainFurniturePlace<ModernFurniture>();
-            var result = furniture.Runnable("Стул", "Example", 0.50, 0.50, null);
+            var result = furniture.Runnable("Стул", "Example", 0.00, 0.00, null);
+
            // var result = furniture.Runnable("Неизвестно", "Example", 0.50, 0.50, null);
             width.Text = result.ToString();
 
