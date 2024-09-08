@@ -1,6 +1,5 @@
 ﻿using AbstractFabric.AbstractFactory;
 using AbstractFabric.Interfaces;
-using AbstractFabric.Views;
 using Microsoft.VisualBasic.Logging;
 using System.Xml.Linq;
 

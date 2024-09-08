@@ -2,7 +2,7 @@
 using AbstractFabric.AbstractFactory;
 using AbstractFabric.Interfaces;
 using AbstractFabric.Models;
-using AbstractFabric.Views;
+using AbstractFabric.Services;
 using Microsoft.VisualBasic.Logging;
 
 namespace Patterns
@@ -24,6 +24,7 @@ namespace Patterns
         {
             MainFurniturePlace<ModernFurniture> furniture = new MainFurniturePlace<ModernFurniture>();
             var result = furniture.Runnable("Стул", "Example", 0.50, 0.50, null);
+           // var result = furniture.Runnable("Неизвестно", "Example", 0.50, 0.50, null);
             width.Text = result.ToString();
 
         }
