@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace AbstractFabric.Services
 {
-    public class MainFurniturePlace<T> : CommonFurnitureValidationGenerics<T> where T : IFurnitureFactory, new()
+    public class MainFurniturePlace<T> : RunnableClass<T> where T : IFurnitureFactory, new()
     {
         public MainFurniturePlace() : base() { }
     }
