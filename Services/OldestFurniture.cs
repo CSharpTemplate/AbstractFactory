@@ -3,7 +3,7 @@ using AbstractFabric.AbstractFactory;
 using AbstractFabric.Interfaces;
 using AbstractFabric.Models;
 
-namespace AbstractFabric.Views
+namespace AbstractFabric.Services
 {
     internal class OldestFurniture : IFurnitureFactory
     {

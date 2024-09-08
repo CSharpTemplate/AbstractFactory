@@ -1,6 +1,5 @@
 ﻿using AbstractFabric.AbstractFactory;
 using AbstractFabric.Interfaces;
-using AbstractFabric.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;

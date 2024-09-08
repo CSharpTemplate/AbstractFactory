@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Events\Buttons\" />
+    <Folder Include="Views\Events\Buttons\" />
+    <Folder Include="Views\Components\" />
   </ItemGroup>
 
   <ItemGroup>

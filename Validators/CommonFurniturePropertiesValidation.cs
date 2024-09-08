@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace AbstractFabric.AbstractFactory
 {
-    public abstract class CommonFurniturePropertiesValidation : ICommonProperties
+    public abstract class CommonFurniturePropertiesValidation : ICommonFurnitureProperties
     {
         public string? Logo { get; set; }
         public string? Name { get; set; }
