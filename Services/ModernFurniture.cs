@@ -1,7 +1,7 @@
 ﻿using AbstractFabric.AbstractFactory;
 using AbstractFabric.Interfaces;
 using AbstractFabric.Models;
-
+using Message = AbstractFabric.Views.Components.Messages;
 namespace AbstractFabric.Services
 {
     public class ModernFurniture : IFurnitureFactory 
@@ -10,22 +10,48 @@ namespace AbstractFabric.Services
 
         CommonFurniturePropertiesValidation IFurnitureFactory.CreateArmChair(string name, string style, double width, double height, string logo)
         {
-            var result = name is not null || style is not null || width <= 0.00 || height <= 0.00 || logo is not null ?
-                         new ArmChair(name, style, width, height, logo) : null;
-            return result;
+       
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(style))
+            {
+                Message.Message.BadName();
+                return null;
+            }
+            else if(width <= 1.00 && height <=1.00)
+            {
+                Message.Message.ErrorWidthAndHeightMessage();
+                return null;
+            }
+             return new ArmChair(name, style, width, height, logo); 
         }
 
         CommonFurniturePropertiesValidation IFurnitureFactory.CreateChair(string name, string style, double width, double height, string logo)
         {
-            var result = width <= 1.00 || height <= 1.00 ? null : new Chair(name, style, width, height, logo);
-            return result;
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(style))
+            {
+                Message.Message.BadName();
+                return null;
+            }
+            else if (width <= 1.00 && height <= 1.00)
+            {
+                Message.Message.ErrorWidthAndHeightMessage();
+                return null;
+            }
+            return new Chair(name, style, width, height, logo);
         }
 
-        CommonFurniturePropertiesValidation IFurnitureFactory.CreateSofa(string name, string style, double width, double height, string logo)
+        CommonFurniturePropertiesValidation? IFurnitureFactory.CreateSofa(string name, string style, double width, double height, string logo)
         {
-            var result = name is not null || style is not null || width <= 0.00 || height <= 0.00 || logo is not null ?
-                      new Sofa(name, style, width, height, logo) : null;
-            return result;
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(style))
+            {
+                Message.Message.BadName();
+                return null;
+            }
+            else if (width <= 1.00 && height <= 1.00)
+            {
+                Message.Message.ErrorWidthAndHeightMessage();
+                return null;
+            }
+            return new Sofa(name, style, width, height, logo);
         }
 
     }

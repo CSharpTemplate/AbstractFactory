@@ -3,31 +3,35 @@ using AbstractFabric.AbstractFactory;
 using AbstractFabric.Interfaces;
 using AbstractFabric.Models;
 using AbstractFabric.Services;
+using AbstractFabric.Views.Components;
 using Microsoft.VisualBasic.Logging;
 
+using Message = AbstractFabric.Views.Components.Messages.Message;
 namespace Patterns
 {
-    public partial class AbstractFabric : Form
+    public partial class AbstractFactory : Form
     {
-       // private dynamic furniture { get; set; }
-        public AbstractFabric()
+        private dynamic? furnitureStyle { get; set; }
+      
+        public AbstractFactory()
         {
             InitializeComponent();
         }
 
         private void AbstractFabric_Load(object sender, EventArgs e)
         {
-       
+            StyleFurniture.comboBox = this.style;
         }
 
         private void create_Click(object sender, EventArgs e)
         {
-            MainFurniturePlace<ModernFurniture> furniture = new MainFurniturePlace<ModernFurniture>();
-            var result = furniture.Runnable("Стул", "Example", 0.00, 0.00, null);
+          
+        }
 
-           // var result = furniture.Runnable("Неизвестно", "Example", 0.50, 0.50, null);
-            width.Text = result.ToString();
-
+        private void styleFurnitureChanged(object sender, EventArgs e)
+        {
+            var style = StyleFurniture.SelectComboBoxPosition();
+            this.furnitureStyle = style is not null ? style : null;
         }
     }
 }

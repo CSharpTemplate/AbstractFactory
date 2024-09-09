@@ -1,6 +1,6 @@
 ﻿namespace Patterns
 {
-    partial class AbstractFabric
+    partial class AbstractFactory
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbstractFabric));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbstractFactory));
             panel1 = new Panel();
+            listBox1 = new ListBox();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
             create = new Button();
@@ -73,6 +74,7 @@
             толькоСтульяToolStripMenuItem = new ToolStripMenuItem();
             толькоКреслаToolStripMenuItem = new ToolStripMenuItem();
             толькоДиваныToolStripMenuItem = new ToolStripMenuItem();
+            label1 = new Label();
             panel1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -85,9 +87,19 @@
             // 
             resources.ApplyResources(panel1, "panel1");
             panel1.BackColor = SystemColors.ControlLight;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(listBox1);
             panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(Loots);
             panel1.Name = "panel1";
+            // 
+            // listBox1
+            // 
+            resources.ApplyResources(listBox1, "listBox1");
+            listBox1.BorderStyle = BorderStyle.None;
+            listBox1.ForeColor = SystemColors.Window;
+            listBox1.FormattingEnabled = true;
+            listBox1.Name = "listBox1";
             // 
             // groupBox2
             // 
@@ -143,13 +155,17 @@
             // style
             // 
             resources.ApplyResources(style, "style");
+            style.AutoCompleteCustomSource.AddRange(new string[] { resources.GetString("style.AutoCompleteCustomSource"), resources.GetString("style.AutoCompleteCustomSource1") });
             style.FormattingEnabled = true;
+            style.Items.AddRange(new object[] { resources.GetString("style.Items"), resources.GetString("style.Items1"), resources.GetString("style.Items2") });
             style.Name = "style";
+            style.SelectedValueChanged += styleFurnitureChanged;
             // 
             // items
             // 
             resources.ApplyResources(items, "items");
             items.FormattingEnabled = true;
+            items.Items.AddRange(new object[] { resources.GetString("items.Items"), resources.GetString("items.Items1"), resources.GetString("items.Items2"), resources.GetString("items.Items3") });
             items.Name = "items";
             // 
             // styleForItem
@@ -355,7 +371,13 @@
             resources.ApplyResources(толькоДиваныToolStripMenuItem, "толькоДиваныToolStripMenuItem");
             толькоДиваныToolStripMenuItem.Name = "толькоДиваныToolStripMenuItem";
             // 
-            // AbstractFabric
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.BackColor = SystemColors.Control;
+            label1.Name = "label1";
+            // 
+            // AbstractFactory
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
@@ -364,9 +386,10 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
-            Name = "AbstractFabric";
+            Name = "AbstractFactory";
             Load += AbstractFabric_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
@@ -424,5 +447,7 @@
         private TextBox width;
         private ComboBox style;
         private Button create;
+        private ListBox listBox1;
+        private Label label1;
     }
 }

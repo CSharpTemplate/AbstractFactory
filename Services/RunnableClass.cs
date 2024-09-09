@@ -1,11 +1,7 @@
 ﻿using AbstractFabric.AbstractFactory;
 using AbstractFabric.Interfaces;
-using AbstractFabric.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AbstractFabric.Views.Components.Messages;
+
 
 namespace AbstractFabric.Services
 {
@@ -15,19 +11,20 @@ namespace AbstractFabric.Services
 
         public dynamic Runnable(string category, string style, double height, double width, string? logo = null)
         {
-            dynamic loot = "";
+            dynamic? loot = "";
             switch (category)
             {
                 case "Стул":
-                    var result = this.factory.CreateChair(category, style, height, width, logo);
-                    loot = result is not null ? result
-                           : MessageBox.Show(Convert.ToString(new InvalidOperationException("Невозможно создать: Одно или несколько свойств содержат null или пустоту")), "Ошибка предмета!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    var chair = this.factory?.CreateChair(category, style, height, width, logo);
+                    loot = chair is not null ? chair : null;
                     break;
                 case "Кресло":
-                    loot = this.factory.CreateArmChair(category, style, height, width, logo);
+                    var armChair = this.factory?.CreateArmChair(category, style, height, width,logo);
+                    loot = armChair is not null ? armChair : null;
                     break;
                 case "Диван":
-                    loot = this.factory.CreateSofa(category, style, height, width, logo);
+                    var sofa = this.factory?.CreateSofa(category, style, height, width, logo);
+                    loot = sofa is not null ? sofa : null;
                     break;
                 default:
                     MessageBox.Show(Convert.ToString(new InvalidOperationException("Невозможно создать! Указанный предмет отсутствует!")), "Ошибка предмета!", MessageBoxButtons.OK, MessageBoxIcon.Error);
