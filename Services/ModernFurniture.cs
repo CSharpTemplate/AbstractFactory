@@ -8,7 +8,7 @@ namespace AbstractFabric.Services
     {
         public ModernFurniture() { }
 
-        CommonFurniturePropertiesValidation IFurnitureFactory.CreateArmChair(string name, string style, double width, double height, string logo)
+        CommonFurniturePropertiesValidation? IFurnitureFactory.CreateArmChair(string name, string style, double width, double height, string logo)
         {
        
             if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(style))
@@ -24,7 +24,7 @@ namespace AbstractFabric.Services
              return new ArmChair(name, style, width, height, logo); 
         }
 
-        CommonFurniturePropertiesValidation IFurnitureFactory.CreateChair(string name, string style, double width, double height, string logo)
+        CommonFurniturePropertiesValidation? IFurnitureFactory.CreateChair(string name, string style, double width, double height, string logo)
         {
             if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(style))
             {
