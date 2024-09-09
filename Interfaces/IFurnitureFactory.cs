@@ -6,8 +6,8 @@ namespace AbstractFabric.Interfaces
 {
     public interface IFurnitureFactory
     {
-        CommonFurniturePropertiesValidation CreateSofa(string name, string style, double width, double height, string logo);
-        CommonFurniturePropertiesValidation CreateArmChair(string name, string style, double width, double height, string logo);
-        CommonFurniturePropertiesValidation CreateChair(string name, string style, double width, double height, string logo);
+        CommonFurniturePropertiesValidation? CreateSofa(string name, string style, double width, double height, string logo);
+        CommonFurniturePropertiesValidation? CreateArmChair(string name, string style, double width, double height, string logo);
+        CommonFurniturePropertiesValidation? CreateChair(string name, string style, double width, double height, string logo);
     }
 }
