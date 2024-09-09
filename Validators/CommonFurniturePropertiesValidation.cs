@@ -1,5 +1,5 @@
 ﻿using AbstractFabric.Interfaces;
-using System.Xml.Linq;
+using Message = AbstractFabric.Views.Components.Messages.Message;
 
 namespace AbstractFabric.AbstractFactory
 {
@@ -15,10 +15,10 @@ namespace AbstractFabric.AbstractFactory
         public CommonFurniturePropertiesValidation(string name, string style, double width, double height, string? logo=null)
         {
             if (width <= 0.00 || height <=0.00)
-                MessageBox.Show("Ширина и высота должны быть больше 0.", "Ошибка валидации свойства!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               Message.ErrorWidthAndHeightMessage();
             else if (name is null || style is null)
             {
-                MessageBox.Show(Convert.ToString(new ArgumentNullException(nameof(name))) + "Поле имени или стиля не должно содержать пустоту", "Ошибка валидации свойства!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Message.BadName();
             }
             else
             {
